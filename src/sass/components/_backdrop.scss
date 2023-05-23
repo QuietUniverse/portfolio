@@ -1,0 +1,31 @@
+.backdrop {
+  min-height: 100vh;
+  background: linear-gradient(
+    to right bottom,
+    $color-primary-light-1,
+    $color-primary-light-2 8% 16%,
+    $color-primary,
+    $color-primary-dark
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $color-white;
+
+  &__shape {
+    position: absolute;
+    display: block;
+    bottom: -5rem;
+    animation: floatAnimation 25s linear;
+  }
+}
+
+.container {
+  @extend .grid__5-3;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

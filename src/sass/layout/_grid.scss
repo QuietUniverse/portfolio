@@ -1,0 +1,22 @@
+.grid__5-3 {
+  display: -ms-grid;
+  display: grid;
+
+  -ms-grid-column: minmax(0, 1fr) minmax(min-content, max-content)
+    minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(min-content, max-content) minmax(
+      0,
+      1fr
+    );
+
+  -ms-grid-row: 0 minmax(0vh, 15vh) minmax(max-content, 70vh) minmax(0vh, 15vh)
+    0;
+  grid-template-rows:
+    0 minmax(0vh, 15vh) minmax(max-content, 70vh) minmax(0vh, 15vh)
+    0;
+
+  @include respond(phone) {
+    -ms-grid-column: 0 100% 0;
+    grid-template-columns: 0 100% 0;
+  }
+}

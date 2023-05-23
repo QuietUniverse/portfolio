@@ -1,0 +1,23 @@
+@mixin roundedBorders {
+  border-radius: 0.9rem;
+}
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == desktop) {
+    @media only screen and (min-width: 75em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == big-desktop) {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
