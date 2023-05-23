@@ -1,0 +1,264 @@
+.quiz {
+  @extend %base-card;
+
+  &__question {
+    @include roundedBorders;
+
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 2.074rem;
+    font-weight: 700;
+    color: $color-grey-dark-1;
+    text-align: center;
+
+    background-color: $color-grey-light-1;
+    padding: 2.7rem 4rem;
+  }
+
+  &__flag {
+    height: 3rem;
+    margin-top: 2rem;
+
+    box-shadow: 0 0 2rem 0.5rem rgba($color-grey-dark-1, 0.15);
+  }
+
+  &__container {
+    -ms-flex: 1;
+    flex: 1;
+
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    padding: 1.5rem 0 0;
+
+    color: $color-grey-dark-1;
+    font-weight: 500;
+    background-color: transparent;
+
+    text-align: center;
+
+    & > * {
+      @include roundedBorders;
+    }
+  }
+
+  &__answer {
+    border: 0.15rem solid $color-white;
+    background-color: transparent;
+    color: inherit;
+
+    padding: 0.9rem 0;
+
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: $color-white;
+      -ms-transform: translateY(-0.2rem);
+      transform: translateY(-0.2rem);
+    }
+
+    &--correct {
+      background-color: $color-primary-dark;
+      border: 0.15rem solid $color-primary-dark;
+      color: $color-grey-light-1;
+
+      -ms-transform: translateY(-0.2rem);
+      transform: translateY(-0.2rem);
+    }
+
+    &--incorrect {
+      background-color: rgba($color-white, 0.5);
+      border: 0.15rem solid rgba($color-white, 0.5);
+      color: rgba($color-grey-dark-2, 0.6);
+
+      -ms-transform: translateY(-0.2rem);
+      transform: translateY(-0.2rem);
+    }
+
+    &--disable-activity {
+      @extend %disable-activity;
+    }
+
+    &-rbtn {
+      display: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  &__score-card {
+    @extend %base-card;
+    background-color: $color-white;
+
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    min-height: 50vh;
+    min-width: 50vh;
+
+    .svg-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      margin-bottom: 0.8rem;
+      margin-top: 0.5rem;
+
+      min-height: 100%;
+      min-width: 100%;
+
+      @include respond(phone) {
+        margin-top: 0;
+      }
+
+      .try-again {
+        &__btn {
+          display: inline-block;
+
+          animation: slowRotate 6s linear infinite paused;
+
+          &:hover {
+            animation-play-state: running;
+          }
+        }
+
+        &__icon {
+          fill: #b1cd3e;
+
+          transition: all 0.35s;
+
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+
+          background-color: $color-grey-light-1;
+          background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from($color-grey-light-2),
+            to($color-grey-light-3)
+          );
+          background-image: -webkit-linear-gradient(
+            top,
+            $color-grey-light-2,
+            $color-grey-light-3
+          );
+          background-image: -moz-linear-gradient(
+            top,
+            $color-grey-light-2,
+            $color-grey-light-3
+          );
+          background-image: -ms-linear-gradient(
+            top,
+            $color-grey-light-2,
+            $color-grey-light-3
+          );
+          background-image: -o-linear-gradient(
+            top,
+            $color-grey-light-2,
+            $color-grey-light-3
+          );
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          box-shadow: 0 0.3rem 0.8rem rgba($color-grey-dark-3, 0.8),
+            inset 0px 0.2rem 0.3rem $color-white;
+
+          &:hover {
+            fill: #7e9822;
+            background: $color-white;
+          }
+
+          @include respond(phone) {
+            width: 6rem;
+            height: 6rem;
+          }
+        }
+      }
+
+      .earth-love__icon {
+        margin-top: 1.5rem;
+
+        filter: drop-shadow(0.5rem 1rem 0.8rem rgba($color-grey-dark-1, 0.25));
+
+        animation: slowBounce 3s linear infinite;
+      }
+    }
+  }
+
+  &__score-message {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+
+    color: $color-grey-dark-3;
+  }
+
+  &__score {
+    color: $color-primary-dark;
+    font-size: 4.64rem;
+    font-weight: 700;
+  }
+
+  &--active {
+    grid-row: 3 / span 1;
+
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  &--prev {
+    display: flex;
+    justify-content: center;
+
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+
+    grid-row: 1 / span 1;
+
+    -ms-transform: translateY(-100vh);
+    transform: translateY(-100vh);
+  }
+
+  &--next {
+    display: flex;
+    justify-content: center;
+
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+
+    grid-row: 5 / span 1;
+
+    -ms-transform: translateY(100vh);
+    transform: translateY(100vh);
+  }
+}
+
+main {
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+}

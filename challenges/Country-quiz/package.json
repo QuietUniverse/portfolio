@@ -1,0 +1,33 @@
+{
+  "name": "country-quiz---devchallenges.io",
+  "version": "1.0.0",
+  "description": "Quiz Challenge using Vanilla JS and SCSS",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass src/sass/style.scss src/css/style.css -w",
+    "compile:sass": "node-sass src/sass/style.scss src/css/style.comp.css",
+    "prefix:css": "postcss src/css/style.comp.css --use autoprefixer -o src/css/style.prefix.css",
+    "compress:css": "node-sass src/css/style.prefix.css src/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "build:webpack": "webpack"
+  },
+  "author": "Muz",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "canvas-confetti": "^1.6.0",
+    "concat": "^1.0.3",
+    "css-loader": "^6.7.3",
+    "node-sass": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.79.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "browserslist": "last 10 versions"
+}
